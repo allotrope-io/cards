@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Head from '../components/head';
 import Nav from '../components/nav';
+import Foot from '../components/foot';
 const Home = () => {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -130,6 +131,7 @@ const Home = () => {
           color: #333;
         }
       `}</style>
+      <Foot/>
     </div>
   );
 };

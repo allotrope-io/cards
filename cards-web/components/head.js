@@ -26,6 +26,14 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
   </NextHead>
 );
 Head.propTypes = {
