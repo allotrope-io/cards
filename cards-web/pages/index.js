@@ -17,10 +17,9 @@ const Home = () => {
       <Head title="Home" />
       <Nav />
       <div className="hero">
-        <h1 className="title">Welcome to Next!</h1>
+        <h1 className="title">Learning &amp; Memorization Simplified</h1>
         <p className="description">
-          To get started, edit the <code>pages/index.js</code> or{' '}
-          <code>pages/api/date.js</code> files, then save to reload.
+          Welcome to Cram Cards.
         </p>
         <p className="row date">
           The date is:&nbsp;{' '}
@@ -33,22 +32,22 @@ const Home = () => {
           )}
         </p>
         <div className="row">
-          <Link href="https://github.com/zeit/next.js#setup">
+          <Link href="#!">
             <a className="card">
-              <h3>Getting Started &rarr;</h3>
-              <p>Learn more about Next.js on GitHub and in their examples.</p>
+              <h3>Under Construction</h3>
+              <p>This open-source project is still under construction. Check back later!</p>
             </a>
           </Link>
-          <Link href="https://github.com/zeit/next.js/tree/master/examples">
+          <Link href="https://apps.ankiweb.net/">
             <a className="card">
-              <h3>Examples &rarr;</h3>
-              <p>Find other example boilerplates on the Next.js GitHub.</p>
+              <h3>Our Inspiration &rarr;</h3>
+              <p>This app is inspired by Anki, the leading, open-source project out there.</p>
             </a>
           </Link>
-          <Link href="https://github.com/zeit/next.js">
+          <Link href="#!">
             <a className="card">
-              <h3>Create Next App &rarr;</h3>
-              <p>Was this tool helpful? Let us know how we can improve it!</p>
+              <h3>Pricing</h3>
+              <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
             </a>
           </Link>
         </div>
