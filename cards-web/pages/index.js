@@ -40,8 +40,10 @@ const Home = () => {
           </Link>
           <Link href="https://apps.ankiweb.net/">
             <a className="card">
-              <h3>Our Inspiration &rarr;</h3>
-              <p>This app is inspired by Anki, the leading, open-source project out there.</p>
+              <h3>Inspiration &rarr;</h3>
+              <p>This app is inspired by Anki, the leading, open-source spaced repetition software.
+                (But one that many find difficult to use!)
+              </p>
             </a>
           </Link>
           <Link href="#!">
