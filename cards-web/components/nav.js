@@ -1,32 +1,37 @@
 import React from 'react';
 import Link from 'next/link';
 const links = [
-  { href: 'https://allotrope.io', label: 'Allotrope' },
-  { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
+    { href: 'https://allotrope.io', label: 'Allotrope' },
+    { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
+    link.key = `nav-link-${link.href}-${link.label}`;
+    return link;
 });
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-            <a>About</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
-    <style jsx>{`
+    <nav class="navbar navbar-expand-lg navbar-dark bg-default">
+        <div class="container">
+            <Link href="/">
+                <a class="navbar-brand">Cram Cards</a>
+            </Link>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navbar">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <Link href="/about">
+                            <a class="nav-link">About</a>
+                        </Link>
+                    </li>
+                    {links.map(({ key, href, label }) => (
+                        <li class="nav-item" key={key}>
+                            <a class="nav-link" href={href}>{label}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+        {/*<style jsx>{`
       :global(body) {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
@@ -51,7 +56,7 @@ const Nav = () => (
         text-decoration: none;
         font-size: 13px;
       }
-    `}</style>
-  </nav>
+    `}</style>*/}
+    </nav>
 );
 export default Nav;
