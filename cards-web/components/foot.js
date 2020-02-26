@@ -16,7 +16,7 @@ const Foot = props => (
       <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
 
       <script>
-         {/* Your web app's Firebase configuration*/}
+         {/* Firebase configuration*/}
          var firebaseConfig = {`{
          apiKey: "AIzaSyB4OG1xEw8ZycNXqhyPrw7hrJpOye6D0Ik",
          authDomain: "cards-allotrope.firebaseapp.com",

@@ -8,24 +8,24 @@ const links = [
     return link;
 });
 const Nav = () => (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-default">
-        <div class="container">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container">
             <Link href="/">
-                <a class="navbar-brand">Cram Cards</a>
+                <a className="navbar-brand">Cram Cards</a>
             </Link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="main-navbar">
-                <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
+            <div className="collapse navbar-collapse" id="main-navbar">
+                <ul className="navbar-nav ml-lg-auto">
+                    <li className="nav-item">
                         <Link href="/about">
-                            <a class="nav-link">About</a>
+                            <a className="nav-link">About</a>
                         </Link>
                     </li>
                     {links.map(({ key, href, label }) => (
-                        <li class="nav-item" key={key}>
-                            <a class="nav-link" href={href}>{label}</a>
+                        <li className="nav-item" key={key}>
+                            <a className="nav-link" href={href}>{label}</a>
                         </li>
                     ))}
                 </ul>
