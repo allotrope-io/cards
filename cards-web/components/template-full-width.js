@@ -3,15 +3,27 @@ import Head from './head';
 import Nav from './nav';
 import Foot from './foot';
 
-const TemplateFullWidth = props => (
-    <div>
-        <Head title={props.title} />
-        <Nav />
-        <div className={props.stretch ? '' : 'container'}>
-            {props.children}
+function TemplateFullWidth(props) {
+    let containingDivClassNames = '';
+    if (props.stretch != "true") {
+        containingDivClassNames = 'container padTop';
+    }
+
+    return (
+        <div>
+            <Head title={props.title} />
+            <Nav />
+            <div className={containingDivClassNames}>
+                {props.children}
+            </div>
+            <Foot />
+            <style jsx>{`
+            .padTop {
+                padding-top: 100px;
+            }
+            `}</style>
         </div>
-        <Foot />
-    </div>
-);
+    )
+}
 
 export default TemplateFullWidth;
