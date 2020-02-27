@@ -31,11 +31,6 @@ const Head = props => (
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" /> 
     {/* FirebaseUI sign-in  */}
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
-    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <link href="/assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
   </NextHead>
 );
 Head.propTypes = {
