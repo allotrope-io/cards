@@ -71,7 +71,7 @@ const Home = () => {
         .hero {
           width: 100%;
           color: #333;
-          background: url('/assets/imgs/starrybg.png');
+          background: url('/imgs/starrybg.png');
           background-size: cover;
           background-position: top;
           padding-top: 10%;
