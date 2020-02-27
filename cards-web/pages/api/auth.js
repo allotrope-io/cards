@@ -2,21 +2,20 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 // import "firebase/firestore";
 
-var firebaseConfig = {
-    apiKey: "AIzaSyB4OG1xEw8ZycNXqhyPrw7hrJpOye6D0Ik",
-    authDomain: "cards-allotrope.firebaseapp.com",
-    databaseURL: "https://cards-allotrope.firebaseio.com",
-    projectId: "cards-allotrope",
-    storageBucket: "cards-allotrope.appspot.com",
-    messagingSenderId: "1088573505479",
-    appId: "1:1088573505479:web:430f4a177334c17082a3e2",
-    measurementId: "G-6HGHG5LY1D"
-};
-
 try {
+    var firebaseConfig = {
+        apiKey: "AIzaSyB4OG1xEw8ZycNXqhyPrw7hrJpOye6D0Ik",
+        authDomain: "cards-allotrope.firebaseapp.com",
+        databaseURL: "https://cards-allotrope.firebaseio.com",
+        projectId: "cards-allotrope",
+        storageBucket: "cards-allotrope.appspot.com",
+        messagingSenderId: "1088573505479",
+        appId: "1:1088573505479:web:430f4a177334c17082a3e2",
+        measurementId: "G-6HGHG5LY1D"
+    };
     firebase.initializeApp(firebaseConfig);
 } catch (err) {
-    console.log('Firebase already initialized.')
+    // Firebase already initialized, which is okay! 
 }
 
 export default (req, res) => {
@@ -24,7 +23,7 @@ export default (req, res) => {
     switch(action) {
         // Registering
         case 'register':
-            res.status(200).json({'response': 'success'});
+            registration(req, res);
         // Sign-in
 
         // Sign-out
@@ -39,5 +38,5 @@ export default (req, res) => {
 };
 
 function registration(req, res) {
-
+    res.json({'response': 'successy'});
 };

@@ -28,6 +28,14 @@ const Nav = () => (
                             <a className="nav-link" href={href}>{label}</a>
                         </li>
                     ))}
+                    <li className="nav-item">
+                      <Link href="/signin">
+                        <a className="nav-link nav-link-icon">
+                          <i className="ni ni-circle-08"></i>
+                          <span className="nav-link-inner--text d-lg-none">Sign in</span>
+                        </a>
+                      </Link>
+                    </li>
                 </ul>
             </div>
         </div>
