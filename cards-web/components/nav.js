@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Icon from '@mdi/react';
+import { mdiAccountCircle } from '@mdi/js';
 const links = [
     { href: 'https://allotrope.io', label: 'Allotrope' },
     { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
@@ -31,7 +33,7 @@ const Nav = () => (
                     <li className="nav-item">
                       <Link href="/signin">
                         <a className="nav-link nav-link-icon">
-                          <i className="ni ni-circle-08"></i>
+                          <Icon path={mdiAccountCircle} size={1} color={'#fff'} />
                           <span className="nav-link-inner--text d-lg-none">Sign in</span>
                         </a>
                       </Link>

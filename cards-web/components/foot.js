@@ -1,5 +1,15 @@
 const Foot = props => (
    <div>
+      <div className="footer container">
+         <div className="row">
+            <div className="col-sm">
+
+            </div>
+            <div className="col-sm">
+               
+            </div>
+         </div>
+      </div>
       <script src="/js/core/jquery.min.js" type="text/javascript"></script>
       <script src="/js/core/popper.min.js" type="text/javascript"></script>
       <script src="/js/core/bootstrap.min.js" type="text/javascript"></script>
