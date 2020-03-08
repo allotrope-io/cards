@@ -33,10 +33,10 @@ export default (req, res) => {
         // Change password
 
         default:
-            res.status(404).json({'response': 'fail'});
+            res.status(404).json({'response': false});
     }
 };
 
 function registration(req, res) {
-    res.json({'response': 'successy'});
+    res.json({'success': true});
 };
