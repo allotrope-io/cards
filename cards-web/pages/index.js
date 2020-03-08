@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Head from '../components/head';
-import Nav from '../components/nav';
-import Foot from '../components/foot';
-import TemplateFullWidth from '../components/template-full-width';
+import LayoutFullWidth from '../components/layout-full-width';
 const Home = () => {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -17,7 +14,7 @@ const Home = () => {
   return (
     <div>
 
-      <TemplateFullWidth title="Home" stretch="true">
+      <LayoutFullWidth title="Home" stretch="true">
         <div className="hero text-center text-white">
           <h1 className="display-2 text-white">Learn. Memorize. Relax.<br />
           </h1>
@@ -66,7 +63,7 @@ const Home = () => {
           </div>
 
         </div>
-      </TemplateFullWidth>
+      </LayoutFullWidth>
       <style jsx>{`
         .hero {
           width: 100%;

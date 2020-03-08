@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import Head from './head';
 import Nav from './nav';
 import Foot from './foot';
+import Footer from './footer';
 
-function TemplateFullWidth(props) {
+function LayoutFullWidth(props) {
     let containingDivClassNames = '';
     if (props.stretch != "true") {
-        containingDivClassNames = 'container padTop';
+        containingDivClassNames = 'container padTop padBottom';
     }
 
     return (
@@ -16,14 +16,18 @@ function TemplateFullWidth(props) {
             <div className={containingDivClassNames}>
                 {props.children}
             </div>
+            <Footer />
             <Foot />
             <style jsx>{`
             .padTop {
                 padding-top: 100px;
+            }
+            .padBottom {
+                padding-bottom: 100px;
             }
             `}</style>
         </div>
     )
 }
 
-export default TemplateFullWidth;
+export default LayoutFullWidth;

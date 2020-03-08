@@ -2,13 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Icon from '@mdi/react';
 import { mdiAccountCircle } from '@mdi/js';
-const links = [
-    { href: 'https://allotrope.io', label: 'Allotrope' },
-    { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
-].map(link => {
-    link.key = `nav-link-${link.href}-${link.label}`;
-    return link;
-});
+
 const Nav = () => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
@@ -25,11 +19,6 @@ const Nav = () => (
                             <a className="nav-link">About</a>
                         </Link>
                     </li>
-                    {links.map(({ key, href, label }) => (
-                        <li className="nav-item" key={key}>
-                            <a className="nav-link" href={href}>{label}</a>
-                        </li>
-                    ))}
                     <li className="nav-item">
                       <Link href="/signin">
                         <a className="nav-link nav-link-icon">
@@ -41,6 +30,11 @@ const Nav = () => (
                 </ul>
             </div>
         </div>
+<style jsx>{`
+.nav-link-icon:hover {
+  opacity: 0.5;
+}
+`}</style>
         {/*<style jsx>{`
       :global(body) {
         margin: 0;

@@ -1,4 +1,4 @@
-import TemplateFullWidth from "../components/template-full-width";
+import LayoutFullWidth from "../components/layout-full-width";
 import { Component } from "react";
 
 class SignIn extends Component {
@@ -26,7 +26,7 @@ class SignIn extends Component {
     render() {
         return (
             <div>
-                <TemplateFullWidth title="Sign in to Cram Cards">
+                <LayoutFullWidth title="Sign in to Cram Cards">
                     <div className="row">
                         <div className="col-md-6">
                             <form onSubmit={this.handleSubmit}>
@@ -60,7 +60,7 @@ class SignIn extends Component {
                         </div>
                     </div>
 
-                </TemplateFullWidth>
+                </LayoutFullWidth>
             </div>
         )
     }
