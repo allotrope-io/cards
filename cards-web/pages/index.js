@@ -42,14 +42,11 @@ const Home = () => {
                 </Link>
               </div>
               <div className="col-sm">
-                <Link href="https://apps.ankiweb.net/">
-                  <a className="card">
+                  <a href="https://apps.ankiweb.net/" target="_blank" className="card">
                     <h3>Inspiration &rarr;</h3>
                     <p>This app is inspired by Anki, the leading, open-source spaced repetition software.
-                      (But one that many find difficult to use!)
-              </p>
+                    (But one that many find difficult to use!)</p>
                   </a>
-                </Link>
               </div>
               <div className="col-sm">
                 <Link href="#!">
