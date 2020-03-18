@@ -1,3 +1,7 @@
+
+/*
+ * Old document, do not use
+ */
 import * as firebase from "firebase/app";
 // import "firebase/auth";
 // import "firebase/firestore";
