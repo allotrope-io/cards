@@ -1,17 +1,31 @@
 import LayoutFullWidth from "../components/layout-full-width";
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Icon from '@mdi/react';
+import Link from 'next/link';
+import Router from 'next/router';
 import { mdiGithub } from '@mdi/js';
+import { signInWithGoogle, signInWithGithub, auth } from '../components/firebase';
+import { UserContext } from "../components/user-provider";
 
 const SignIn = () => {
+    const user = useContext(UserContext).user;
+    if (user !== null) {
+        Router.push('/account');
+    }
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const signInWithEmailAndPasswordHandler =
-        (event, email, password) => {
+        (event: React.SyntheticEvent, email: string, password: string) => {
             event.preventDefault();
+            auth.signInWithEmailAndPassword(email, password).catch(error => {
+                setError("Unable to sign-in. Please double-check your email and password.");
+                if (error.code === "auth/internal-error") {
+                    console.error("Internal server error", error);
+                }
+            });
         };
-    const onChangeHandler = (event) => {
+    const onChangeHandler = (event: any) => {
         const {name, value} = event.currentTarget;
         switch(name) {
             case 'userEmail':
@@ -30,10 +44,12 @@ const SignIn = () => {
             <div className="row">
                         <div className="col-md-6">
                             <p className="text-center">Sign in with:</p>
-                            <button className="btn btn-google">
+                            <button
+                                onClick={signInWithGoogle}
+                                className="btn btn-white-bg btn-google btn-secondary">
                                 <div className="icon"></div> Google
                             </button>
-                            <button className="btn">
+                            <button onClick={signInWithGithub} className="btn btn-white-bg btn-secondary">
                                 <Icon path={mdiGithub} size={1} /> &nbsp; Github
                             </button>
                             <p className="text-center signin-divider">or</p>
@@ -71,11 +87,21 @@ const SignIn = () => {
                             </form>
                         </div>
                         <div className="col-md-6">
-                            <p>User registration coming soon</p>
+                            <h4 className="display-2">Pace yourself.</h4>
+                            <p className="lead">"Rome wasn't built in a day"</p>
+                            <Link href="/signup">
+                                <a className="btn btn-sm">Register</a>
+                            </Link>
+                            <Link href="/account/recover-password">
+                                <a className="btn btn-sm">Recover Password</a>
+                            </Link>
                         </div>
                     </div>
             </LayoutFullWidth>
     <style jsx>{`
+    .btn-white-bg {
+        background-color: #fff;
+    }
     .signin-divider {
         margin-top: 15px;
     }
@@ -104,7 +130,7 @@ const SignIn = () => {
         background: url('imgs/icon-google.svg');
         max-height: 18px;
         max-width: 18px;
-        margin: 0 24px -5px -4px;
+        margin: 0 24px -5px 0;
     }
     `}</style>
         </div>

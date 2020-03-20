@@ -3,9 +3,14 @@ import '../public/css/nucleo-icons.css';
 import '../public/css/nucleo-svg.css';
 import '../public/css/font-awesome.css';
 import '../public/css/argon-design-system.min.css';
+import UserProvider from '../components/user-provider';
 
 
 // Default export for `pages/_app.js` file
 export default function CardsApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+    return (
+        <UserProvider>
+            <Component {...pageProps} />
+        </UserProvider>
+    );
 }

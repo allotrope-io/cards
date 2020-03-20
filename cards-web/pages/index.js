@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import LayoutFullWidth from '../components/layout-full-width';
 const Home = () => {
@@ -16,8 +16,8 @@ const Home = () => {
 
       <LayoutFullWidth title="Home" stretch="true">
         <div className="hero text-center text-white">
-          <h1 className="display-2 text-white">Learn. Memorize. Relax.<br />
-          </h1>
+          <h3 className="display-2 text-white">Learn. Memorize. Relax.<br />
+          </h3>
           <p className="h4 text-white">
             Life's too short to spend all day studying.
         </p>
@@ -36,14 +36,14 @@ const Home = () => {
               <div className="col-sm">
                 <Link href="#!">
                   <a className="card">
-                    <h3>Under Construction</h3>
+                    <h4>Under Construction</h4>
                     <p>This open-source project is still under construction. Check back later!</p>
                   </a>
                 </Link>
               </div>
               <div className="col-sm">
                   <a href="https://apps.ankiweb.net/" target="_blank" className="card">
-                    <h3>Inspiration &rarr;</h3>
+                    <h4>Inspiration &rarr;</h4>
                     <p>This app is inspired by Anki, the leading, open-source spaced repetition software.
                     (But one that many find difficult to use!)</p>
                   </a>
@@ -51,7 +51,7 @@ const Home = () => {
               <div className="col-sm">
                 <Link href="#!">
                   <a className="card">
-                    <h3>Pricing</h3>
+                    <h4>Pricing</h4>
                     <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
                   </a>
                 </Link>
