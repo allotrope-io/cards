@@ -1,57 +1,73 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
-const links = [
-  { href: 'https://allotrope.io', label: 'Allotrope' },
-  { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-            <a>About</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
+import Icon from '@mdi/react';
+import { mdiAccountCircle } from '@mdi/js';
+import { UserContext } from './user-provider';
+import { auth } from './firebase';
+
+const Nav = () => {
+  const user = useContext(UserContext).user;
+  return (
+    <nav className="navbar is-link is-transparent">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link href="/">
+            <a className="navbar-item">Cram Cards</a>
+          </Link>
+
+          <button className="navbar-burger burger" type="button"
+            data-toggle="collapse"
+            data-target="main-navbar"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="menu">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div className="navbar-menu" id="main-navbar">
+          <div className="navbar-start">
+            <Link href="/about">
+              <a className="navbar-item">About</a>
+            </Link>
+          </div>
+          <div className="navbar-end">
+            {user ?
+              <div className="navbar-item has-dropdown is-hoverable">
+                <Link href="/account">
+                  <a className="navbar-link is-arrowless">
+                    <img style={{ width: '23px', height: '23px' }}
+                      src={user.photoURL || "https://placehold.it/75x75"}
+                      className="rounded-circle"
+                      aria-label="Account" />
+                  </a>
+                </Link>
+                <div className="navbar-dropdown is-right is-boxed">
+                  <a className="navbar-item" onClick={() => { auth.signOut() }}>Sign out</a>
+                </div>
+              </div>
+              :
+              <div className="navbar-item buttons">
+                <Link href="/signin">
+                  <a className="button is-link is-inverted is-outlined">
+                    Sign in
+                  </a>
+                </Link>
+                <Link href="/signup">
+                  <a className="button is-white">
+                    <strong>Join</strong>
+                  </a>
+                </Link>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
+      .navbar.is-link.is-transparent {
+        background-color: #6273e8;
       }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-);
+      `}</style>
+    </nav >
+  )
+}
 export default Nav;

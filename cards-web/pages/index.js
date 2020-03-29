@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Head from '../components/head';
-import Nav from '../components/nav';
-import Foot from '../components/foot';
+import LayoutFullWidth from '../components/layout-full-width';
 const Home = () => {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -15,68 +13,68 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Head title="Home" />
-      <Nav />
-      <div className="hero">
-        <h1 className="title">Learning &amp; Memorization Simplified</h1>
-        <p className="description">
-          Welcome to Cram Cards.
-        </p>
-        <p className="row date">
-          The date is:&nbsp;{' '}
-          {date ? (
-            <span>
-              <b>{date.date}</b>
-            </span>
-          ) : (
-            <span className="loading"></span>
-          )}
-        </p>
-        <div className="row">
-          <Link href="#!">
-            <a className="card">
-              <h3>Under Construction</h3>
-              <p>This open-source project is still under construction. Check back later!</p>
-            </a>
-          </Link>
-          <Link href="https://apps.ankiweb.net/">
-            <a className="card">
-              <h3>Inspiration &rarr;</h3>
-              <p>This app is inspired by Anki, the leading, open-source spaced repetition software.
-                (But one that many find difficult to use!)
-              </p>
-            </a>
-          </Link>
-          <Link href="#!">
-            <a className="card">
-              <h3>Pricing</h3>
-              <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
-            </a>
-          </Link>
+
+      <LayoutFullWidth title="Home" stretch="true">
+        <div className="hero has-text-centered has-text-white">
+          <div className="hero-body">
+            <h3 className="title is-1 has-text-white">Learn. Memorize. Relax.<br />
+            </h3>
+            <p className="subtitle is-3 has-text-white">
+              Life's too short to spend all day studying.
+            </p>
+          </div>
+
+          <p className="date">
+            The date is:&nbsp;{' '}
+            {date ? (
+              <span>
+                <b>{date.date}</b>
+              </span>
+            ) : (
+                <span className="loading"></span>
+              )}
+          </p>
+          <div className="container heroBottom">
+            <div className="columns">
+              <div className="column">
+                <Link href="#!">
+                  <a className="box">
+                    <h4 className="title is-5">Under Construction</h4>
+                    <p>This open-source project is still under construction. Check back later!</p>
+                  </a>
+                </Link>
+              </div>
+              <div className="column">
+                <a href="https://apps.ankiweb.net/" target="_blank" className="box">
+                  <h4 className="title is-5">Inspiration &rarr;</h4>
+                  <p>This app is inspired by Anki, the leading, open-source spaced learning software.</p>
+                </a>
+              </div>
+              <div className="column">
+                <Link href="#!">
+                  <a className="box">
+                    <h4 className="title is-5">Pricing</h4>
+                    <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </LayoutFullWidth>
       <style jsx>{`
         .hero {
           width: 100%;
           color: #333;
+          background: url('/imgs/starrybg.png');
+          background-size: cover;
+          background-position: top;
+          padding-top: 10%;
         }
-        .title {
-          margin: 0;
-          width: 100%;
-          padding-top: 80px;
-          line-height: 1.15;
-          font-size: 48px;
-        }
-        .title,
-        .description {
-          text-align: center;
-        }
-        .row {
-          max-width: 880px;
-          margin: 80px auto 40px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
+        .heroBottom {
+          padding-top: 5%;
+          padding-bottom: 5%;
         }
         .date {
           height: 24px;
@@ -131,7 +129,6 @@ const Home = () => {
           color: #333;
         }
       `}</style>
-      <Foot/>
     </div>
   );
 };
