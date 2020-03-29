@@ -7,7 +7,7 @@ const PasswordReset = () => {
     const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
     const [error, setError] = useState(null);
 
-    const onChangeHandler = event => {
+    const onChangeHandler = (event: any) => {
         const { name, value } = event.currentTarget;
         switch (name) {
             case "userEmail":
@@ -17,19 +17,39 @@ const PasswordReset = () => {
                 throw Error("Unknown event type given: " + name);
         }
     }
-    
-    const sendResetEmail = event => {
+
+    const sendResetEmail = (event: any) => {
         event.preventDefault();
-        auth
-            .sendPasswordResetEmail(email)
-            .then(() => {
-                setEmailHasBeenSent(true);
-                setTimeout(() => {setEmailHasBeenSent(false)}, 3000);
-            })
-            .catch(() => {
-                setError("Error resetting password");
-            });
+        
+        const emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        if (emailValid) {
+            if (emailHasBeenSent) {
+                setError("You've recently requested an email reset, please wait...");
+            } else {
+                auth
+                .sendPasswordResetEmail(email)
+                .then(() => {
+                    sentAnEmail();
+                })
+                .catch(error => {
+                    if (error.code === 'auth/user-not-found') {
+                        sentAnEmail();
+                    } else {
+                        setError(`Error resetting password. (${error.message})`);
+                    }
+                });
+            }
+        } else {
+            setError("Please enter a valid email address.");
+        }
     };
+
+    const sentAnEmail = () => {
+        setError(null);
+        setEmailHasBeenSent(true);
+        setTimeout(() => { setEmailHasBeenSent(false)}, 10000);
+    }
+
     return (
         <LayoutFullWidth title="Reset Password">
             <div className="columns">
@@ -38,11 +58,11 @@ const PasswordReset = () => {
                     <form>
                         {emailHasBeenSent && (
                             <div className="notification">
-                                If this email matches an email in our records, a password reset will be sent.
+                                If this email matches an email in our records, a password reset email will be sent.
                             </div>
                         )}
                         {error !== null && (
-                            <div className="notificcation is-danger is-light">
+                            <div className="notification is-danger is-light">
                                 {error}
                             </div>
                         )}
@@ -57,7 +77,7 @@ const PasswordReset = () => {
                                 className="input is-floating"
                             />
                         </div>
-                        <button className="button is-link">
+                        <button onClick={sendResetEmail} className="button is-link">
                             Send Reset Link
                         </button>
                     </form>
