@@ -3,52 +3,71 @@ import Link from 'next/link';
 import Icon from '@mdi/react';
 import { mdiAccountCircle } from '@mdi/js';
 import { UserContext } from './user-provider';
+import { auth } from './firebase';
 
 const Nav = () => {
   const user = useContext(UserContext).user;
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar is-link is-transparent">
       <div className="container">
-        <Link href="/">
-          <a className="navbar-brand">Cram Cards</a>
-        </Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="main-navbar">
-          <ul className="navbar-nav ml-lg-auto">
-            <li className="nav-item">
-              <Link href="/about">
-                <a className="nav-link">About</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              {user ?
+        <div className="navbar-brand">
+          <Link href="/">
+            <a className="navbar-item">Cram Cards</a>
+          </Link>
+
+          <button className="navbar-burger burger" type="button"
+            data-toggle="collapse"
+            data-target="main-navbar"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="menu">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div className="navbar-menu" id="main-navbar">
+          <div className="navbar-start">
+            <Link href="/about">
+              <a className="navbar-item">About</a>
+            </Link>
+          </div>
+          <div className="navbar-end">
+            {user ?
+              <div className="navbar-item has-dropdown is-hoverable">
                 <Link href="/account">
-                  <a className="nav-link nav-link-icon">
-                    <img style={{ width: '23px', height: '23px'}} 
-                    src={user.photoURL || "https://placehold.it/75x75"} 
-                    className="rounded-circle" />
-                    <span className="nav-link-inner--text d-lg-none">My Account</span>
+                  <a className="navbar-link is-arrowless">
+                    <img style={{ width: '23px', height: '23px' }}
+                      src={user.photoURL || "https://placehold.it/75x75"}
+                      className="rounded-circle"
+                      aria-label="Account" />
                   </a>
                 </Link>
-                :
+                <div className="navbar-dropdown is-boxed">
+                  <a className="navbar-item" onClick={() => { auth.signOut() }}>Sign out</a>
+                </div>
+              </div>
+              :
+              <div className="navbar-item buttons">
                 <Link href="/signin">
-                  <a className="nav-link nav-link-icon">
-                    <Icon path={mdiAccountCircle} size={1} color={'#fff'} />
-                    <span className="nav-link-inner--text d-lg-none">Sign in</span>
+                  <a className="button is-link is-inverted is-outlined">
+                    Sign in
                   </a>
-                </Link>}
-            </li>
-          </ul>
+                </Link>
+                <Link href="/signup">
+                  <a className="button is-white">
+                    <strong>Join</strong>
+                  </a>
+                </Link>
+              </div>
+            }
+          </div>
         </div>
       </div>
       <style jsx>{`
-      .nav-link-icon:hover {
-      opacity: 0.5;
+      .navbar.is-link.is-transparent {
+        background-color: #6273e8;
       }
       `}</style>
-    </nav>
+    </nav >
   )
 }
 export default Nav;

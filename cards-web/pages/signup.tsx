@@ -16,11 +16,11 @@ const SignIn = () => {
             event.preventDefault();
             let madeFBUser = false;
             try {
-                const {user} = await auth.createUserWithEmailAndPassword(email, password);
-                madeFBUser = true; 
-                generateUserDocument(user, {displayName});
+                const { user } = await auth.createUserWithEmailAndPassword(email, password);
+                madeFBUser = true;
+                generateUserDocument(user, { displayName });
             } catch (error) {
-                if(madeFBUser) {
+                if (madeFBUser) {
                     setError(`Error signing up with email and password, contact support with your email ${email} (Err: AUTH_YES_DB_NO)`);
                 } else {
                     setError('Error signing up with email and password, please try again.');
@@ -50,20 +50,22 @@ const SignIn = () => {
     return (
         <div>
             <LayoutFullWidth title="Sign Up | Cram Cards">
-                <div className="row">
-                    <div className="col-md-6">
-                        <p className="text-center">Create account with:</p>
-                        <button className="btn btn-white-bg btn-google btn-secondary">
-                            <div className="icon"></div> Google
+                <div className="columns">
+                    <div className="column">
+                        <p className="has-text-centered">Create account with:</p>
+                        <div className="buttons">
+                            <button className="button btn-google">
+                                <div className="icon"></div> Google
                             </button>
-                        <button className="btn btn-white-bg btn-secondary">
-                            <Icon path={mdiGithub} size={1} /> &nbsp; Github
+                            <button className="button">
+                                <Icon path={mdiGithub} size={1} /> &nbsp; Github
                             </button>
-                        <p className="text-center signin-divider">or by email</p>
+                        </div>
+                        <p className="has-text-centered signin-divider">or by email</p>
                         {error !== null && <div className="alert alert-warning" role="alert">{error}</div>}
                         <form>
-                            <div className="form-group">
-                                <label htmlFor="displayName">Display Name:</label>
+                            <div className="field">
+                                <label className="label" htmlFor="displayName">Display Name:</label>
                                 <input
                                     type="text"
                                     placeholder="E.g. LearningNinja"
@@ -71,11 +73,11 @@ const SignIn = () => {
                                     name="displayName"
                                     id="displayName"
                                     onChange={(event) => onChangeHandler(event)}
-                                    className="form-control form-control-alternative"
+                                    className="input is-floating"
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="userEmail">E-mail Address</label>
+                            <div className="field">
+                                <label className="label" htmlFor="userEmail">E-mail Address</label>
                                 <input
                                     type="email"
                                     placeholder="email"
@@ -83,11 +85,11 @@ const SignIn = () => {
                                     name="userEmail"
                                     id="userEmail"
                                     onChange={(event) => onChangeHandler(event)}
-                                    className="form-control form-control-alternative"
+                                    className="input is-floating"
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="userPassword">Password</label>
+                            <div className="field">
+                                <label className="label" htmlFor="userPassword">Password</label>
                                 <input
                                     type="password"
                                     id="userPassword"
@@ -95,24 +97,26 @@ const SignIn = () => {
                                     placeholder="Passphrase here (8+ chars...)"
                                     value={password}
                                     onChange={(event) => onChangeHandler(event)}
-                                    className="form-control form-control-alternative"
+                                    className="input is-floating"
                                 />
                             </div>
-                            <button
-                                className="btn btn-primary"
-                                type="submit"
-                                onClick={(event) => { createUserWithEmailAndPasswordHandler(event, email, password) }}
-                            >Sign Up</button>
-                            <Link href="/signin">
-                                <a className="btn">
-                                    Login with existing account &nbsp;
-                                <Icon path={mdiLoginVariant} size={1} />
-                                </a>
-                            </Link>
+                            <div className="buttons">
+                                <button
+                                    className="button is-link is-floating"
+                                    type="submit"
+                                    onClick={(event) => { createUserWithEmailAndPasswordHandler(event, email, password) }}
+                                >Sign Up</button>
+                                <Link href="/signin">
+                                    <a className="button is-white">
+                                        Login with existing account &nbsp;
+                                    <Icon path={mdiLoginVariant} size={1} />
+                                    </a>
+                                </Link>
+                            </div>
                         </form>
                     </div>
-                    <div className="col-md-6">
-                        <h5>Free</h5>
+                    <div className="column">
+                        <h5 className="title">Free</h5>
                         <p>Because great study tools should be.</p>
                         <h5>Easy to use</h5>
                         <p>So you can focus on using what's important: learning.</p>
@@ -120,17 +124,16 @@ const SignIn = () => {
                 </div>
             </LayoutFullWidth>
             <style jsx>{`
-    .btn-white-bg {
-        background-color: #fff;
-    }
     .signin-divider {
         margin-top: 15px;
+        position: relative;
+        margin-bottom: 15px;
     }
     .signin-divider::before {
         content: ' ';
         background-color: #fff;
         height: 15px;
-        width: 100px;
+        width: 35px;
         position: absolute;
         margin-top: 5px;
         margin-left: -10px;
@@ -151,7 +154,7 @@ const SignIn = () => {
         background: url('imgs/icon-google.svg');
         max-height: 18px;
         max-width: 18px;
-        margin: 0 24px -5px 0;
+        margin: 0 24px 0 0;
     }
     `}</style>
         </div>

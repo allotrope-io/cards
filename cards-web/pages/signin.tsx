@@ -1,5 +1,5 @@
 import LayoutFullWidth from "../components/layout-full-width";
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import Icon from '@mdi/react';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -26,8 +26,8 @@ const SignIn = () => {
             });
         };
     const onChangeHandler = (event: any) => {
-        const {name, value} = event.currentTarget;
-        switch(name) {
+        const { name, value } = event.currentTarget;
+        switch (name) {
             case 'userEmail':
                 setEmail(value);
                 break;
@@ -38,72 +38,83 @@ const SignIn = () => {
                 throw new Error('Action type unknown: ' + name);
         }
     }
+
+
     return (
         <div>
             <LayoutFullWidth title="Sign in to Cram Cards">
-            <div className="row">
-                        <div className="col-md-6">
-                            <p className="text-center">Sign in with:</p>
+                <div className="columns">
+                    <div className="column is-two-fifths">
+                        <p className="has-text-centered">Sign in with:</p>
+                        <div className="buttons">
                             <button
                                 onClick={signInWithGoogle}
-                                className="btn btn-white-bg btn-google btn-secondary">
+                                className="button btn-google">
                                 <div className="icon"></div> Google
                             </button>
-                            <button onClick={signInWithGithub} className="btn btn-white-bg btn-secondary">
+                            <button onClick={signInWithGithub} className="button">
                                 <Icon path={mdiGithub} size={1} /> &nbsp; Github
                             </button>
-                            <p className="text-center signin-divider">or</p>
-                            {error !== null && <div className="alert alert-warning" role="alert">{error}</div>}
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="userEmail">E-mail Address</label>
-                                    <input
-                                        type="email"
-                                        placeholder="email"
-                                        value={email}
-                                        name="userEmail"
-                                        id="userEmail"
-                                        onChange={(event) => onChangeHandler(event)}
-                                        className="form-control form-control-alternative"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="userPassword">Password</label>
-                                    <input
-                                        type="password"
-                                        id="userPassword"
-                                        name="userPassword"
-                                        placeholder="Passphrase here (8+ chars...)"
-                                        value={password}
-                                        onChange={(event) => onChangeHandler(event)}
-                                        className="form-control form-control-alternative"
-                                    />
-                                </div>
-                                <button 
-                                    className="btn btn-primary" 
-                                    type="submit"
-                                    onClick={(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}
-                                    >Sign in</button>
-                            </form>
                         </div>
-                        <div className="col-md-6">
-                            <h4 className="display-2">Pace yourself.</h4>
-                            <p className="lead">"Rome wasn't built in a day"</p>
-                            <Link href="/signup">
-                                <a className="btn btn-sm">Register</a>
-                            </Link>
-                            <Link href="/account/recover-password">
-                                <a className="btn btn-sm">Recover Password</a>
-                            </Link>
+                        <p className="has-text-centered signin-divider">or</p>
+                        {error !== null && <div className="notification is-warning is-light" role="alert">{error}</div>}
+                        <form>
+                            <div className="field">
+                                <label className="label" htmlFor="userEmail">E-mail Address</label>
+                                <input
+                                    type="email"
+                                    placeholder="email"
+                                    value={email}
+                                    name="userEmail"
+                                    id="userEmail"
+                                    onChange={(event) => onChangeHandler(event)}
+                                    className="input is-floating"
+                                />
+                            </div>
+                            <div className="field">
+                                <label className="label" htmlFor="userPassword">Password</label>
+                                <input
+                                    type="password"
+                                    id="userPassword"
+                                    name="userPassword"
+                                    placeholder="Passphrase here (8+ chars...)"
+                                    value={password}
+                                    onChange={(event) => onChangeHandler(event)}
+                                    className="input is-floating"
+                                />
+                            </div>
+                            <div className="buttons">
+                                <button
+                                    className="button is-floating is-link"
+                                    type="submit"
+                                    onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}
+                                >Sign in</button>
+                                <Link href="/account/recover-password">
+                                    <a className="button is-text">Reset Password</a>
+                                </Link>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="column">
+                        <div id="tsparticles">
+                            <p className="title title-rome">"Rome wasn't built in a day"</p>
+                            <div className="buttons">
+                                <Link href="/signup">
+                                    <a className="button is-link is-light">Register</a>
+                                </Link>
+                            </div>
                         </div>
                     </div>
+                </div>
             </LayoutFullWidth>
-    <style jsx>{`
-    .btn-white-bg {
-        background-color: #fff;
+            <style jsx>{`
+    .title-rome {
+        margin-top: 65px;
     }
     .signin-divider {
         margin-top: 15px;
+        position: relative;
+        margin-bottom: 15px;
     }
     .signin-divider::before {
         content: ' ';
@@ -130,7 +141,7 @@ const SignIn = () => {
         background: url('imgs/icon-google.svg');
         max-height: 18px;
         max-width: 18px;
-        margin: 0 24px -5px 0;
+        margin: 0 24px 0 0;
     }
     `}</style>
         </div>
