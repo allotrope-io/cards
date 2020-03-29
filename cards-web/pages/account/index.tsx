@@ -19,15 +19,15 @@ const Account = () => {
     return (
         <div>
             <LayoutAccount title="Your Profile | Cram Cards">
-                <div className="row">
-                    <div className="col-2">
+                <div className="columns">
+                    <div className="column">
                         <img style={{ maxWidth: '75px', maxHeight: '75px'}}
                             src={photoURL || "https://placehold.it/75x75"}
                             className="rounded-circle" />
                     </div>
-                    <div className="col-10">
+                    <div className="column">
                         <p>{displayName} - {email}</p>
-                        <button className="btn" onClick = {() => {auth.signOut()}}>Sign out</button>
+                        <button className="button" onClick = {() => {auth.signOut()}}>Sign out</button>
                     </div>
                 </div>
 

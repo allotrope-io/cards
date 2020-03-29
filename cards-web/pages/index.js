@@ -15,13 +15,16 @@ const Home = () => {
     <div>
 
       <LayoutFullWidth title="Home" stretch="true">
-        <div className="hero text-center text-white">
-          <h3 className="display-2 text-white">Learn. Memorize. Relax.<br />
-          </h3>
-          <p className="h4 text-white">
-            Life's too short to spend all day studying.
-        </p>
-          <p className="row date">
+        <div className="hero has-text-centered has-text-white">
+          <div className="hero-body">
+            <h3 className="title is-1 has-text-white">Learn. Memorize. Relax.<br />
+            </h3>
+            <p className="subtitle is-3 has-text-white">
+              Life's too short to spend all day studying.
+            </p>
+          </div>
+
+          <p className="date">
             The date is:&nbsp;{' '}
             {date ? (
               <span>
@@ -32,26 +35,25 @@ const Home = () => {
               )}
           </p>
           <div className="container heroBottom">
-            <div className="row">
-              <div className="col-sm">
+            <div className="columns">
+              <div className="column">
                 <Link href="#!">
-                  <a className="card">
-                    <h4>Under Construction</h4>
+                  <a className="box">
+                    <h4 className="title is-5">Under Construction</h4>
                     <p>This open-source project is still under construction. Check back later!</p>
                   </a>
                 </Link>
               </div>
-              <div className="col-sm">
-                  <a href="https://apps.ankiweb.net/" target="_blank" className="card">
-                    <h4>Inspiration &rarr;</h4>
-                    <p>This app is inspired by Anki, the leading, open-source spaced repetition software.
-                    (But one that many find difficult to use!)</p>
-                  </a>
+              <div className="column">
+                <a href="https://apps.ankiweb.net/" target="_blank" className="box">
+                  <h4 className="title is-5">Inspiration &rarr;</h4>
+                  <p>This app is inspired by Anki, the leading, open-source spaced learning software.</p>
+                </a>
               </div>
-              <div className="col-sm">
+              <div className="column">
                 <Link href="#!">
-                  <a className="card">
-                    <h4>Pricing</h4>
+                  <a className="box">
+                    <h4 className="title is-5">Pricing</h4>
                     <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
                   </a>
                 </Link>
@@ -71,7 +73,8 @@ const Home = () => {
           padding-top: 10%;
         }
         .heroBottom {
-          padding-bottom: 10%;
+          padding-top: 5%;
+          padding-bottom: 5%;
         }
         .date {
           height: 24px;

@@ -41,7 +41,7 @@ const Nav = () => {
                       aria-label="Account" />
                   </a>
                 </Link>
-                <div className="navbar-dropdown is-boxed">
+                <div className="navbar-dropdown is-right is-boxed">
                   <a className="navbar-item" onClick={() => { auth.signOut() }}>Sign out</a>
                 </div>
               </div>

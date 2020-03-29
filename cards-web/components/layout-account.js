@@ -5,19 +5,24 @@ function LayoutAccount(props) {
     return (
         <div>
             <LayoutFullWidth title={props.title}>
-                <div className="row">
-                    <div className="col-2 card">
-                        <ul className="list-group nav flex-column">
-                            <li className="nav-item">
-                                <a className="nav-link active" href="#!">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#!">History</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#!">Settings</a>
-                            </li>
-                        </ul>
+                <div className="columns">
+                    <div className="column is-one-fifth">
+                        <aside className="menu">
+                            <p className="menu-label">
+                                Account
+                            </p>
+                            <ul className="menu-list">
+                                <li>
+                                    <a className="nav-link active" href="#!">Profile</a>
+                                </li>
+                                <li>
+                                    <a className="nav-link" href="#!">History</a>
+                                </li>
+                                <li>
+                                    <a className="nav-link" href="#!">Settings</a>
+                                </li>
+                            </ul>
+                        </aside>
                     </div>
                     <div className="col">
                         {props.children}
