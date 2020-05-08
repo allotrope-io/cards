@@ -42,6 +42,9 @@ const Nav = () => {
                   </a>
                 </Link>
                 <div className="navbar-dropdown is-right is-boxed">
+                  <Link href="/account">
+                    <a className="navbar-item">My Account</a>
+                  </Link>
                   <a className="navbar-item" onClick={() => { auth.signOut() }}>Sign out</a>
                 </div>
               </div>
