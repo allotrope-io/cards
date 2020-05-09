@@ -1,3 +1,9 @@
+/** 
+ * Bulma.css overrides 
+ */
+html {
+    overflow-y: initial !important;
+}
 
 /* Forms */
 .input.is-floating {

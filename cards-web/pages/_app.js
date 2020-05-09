@@ -2,12 +2,15 @@
 import '../public/css/bulma.css';
 import '../public/css/global.css';
 import UserProvider from '../components/user-provider';
-
+import { Scrollbars } from 'react-custom-scrollbars';
+import BodyScrollbar from '../components/helpers/body-scrollbar';
 
 export default function CardsApp({ Component, pageProps }) {
     return (
         <UserProvider>
-            <Component {...pageProps} />
+            <BodyScrollbar>
+                <Component {...pageProps} />
+            </BodyScrollbar>
         </UserProvider>
     );
 }
