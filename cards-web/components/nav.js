@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import Icon from '@mdi/react';
-import { mdiAccountCircle } from '@mdi/js';
 import { UserContext } from './user-provider';
 import { auth } from './firebase';
 
