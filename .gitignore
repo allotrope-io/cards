@@ -2,3 +2,5 @@
 cards-web/.vscode/settings.json
 
 .now
+cards-web/public/sw.js.map
+cards-web/public/sw.js
