@@ -9,7 +9,7 @@ function LayoutAccount(props: LayoutAccountProps) {
     const user = null;
     return (
         <div>
-            <LayoutFullWidth title={props.title}>
+            <LayoutFullWidth title={props.title} isTraditionalPage={false}>
                 <div className="columns">
                     <div className="column is-one-fifth">
                         <aside className="menu">

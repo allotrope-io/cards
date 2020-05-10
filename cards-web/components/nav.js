@@ -25,8 +25,8 @@ const Nav = () => {
 
         <div className={navOpen ? "navbar-menu is-active " : "navbar-menu"} id="main-navbar">
           <div className="navbar-start">
-            <Link href="/about">
-              <a className="navbar-item">About</a>
+            <Link href="/discover">
+              <a className="navbar-item">Discover</a>
             </Link>
           </div>
           <div className="navbar-end">

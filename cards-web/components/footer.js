@@ -1,27 +1,38 @@
 import React from 'react';
+import Link from 'next/link';
+
 const links = [
     { href: 'https://allotrope.io', label: 'Allotrope' },
     { href: 'https://github.com/allotrope-io/cards', label: 'GitHub' },
- ].map(link => {
+].map(link => {
     link.key = `nav-link-${link.href}-${link.label}`;
     return link;
- });
+});
 
 function Footer(props) {
     return (
         <div className="footer">
             <div className="container">
-                <div className="row">
-                    <div className="col-sm footer-nav">
-                        <h6>NAV</h6>
+                <div className="columns">
+                    <div className="column is-one-fifth footer-nav">
+                        <h6>LINKS</h6>
+                        <li>
+                            <Link href="/about">
+                                <a>About</a>
+                            </Link>
+                        </li>
                         {links.map(({ key, href, label }) => (
                             <li key={key}>
                                 <a href={href}>{label}</a>
                             </li>
                         ))}
                     </div>
-                    <div className="col-sm">
-
+                    <div className="column">
+                        <h6>SPACED REPETITION</h6>
+                        <p>
+                            Looking to integrate your learning with your memorization? Cram cards is
+                            the most seamless workflow to support you.
+                        </p>
                     </div>
                 </div>
             </div>
