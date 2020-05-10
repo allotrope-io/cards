@@ -10,4 +10,4 @@ Feel free to contribute to the project! I'm not strong with unit testing or imma
 This software is built using NextJS, React, and Firebase. The eventual hope is for it to be both a desktop PWA (for frequent users to quickly create cards or review their sets) and a website with SEO for users to create decks (e.g. for a specific course) and have classmates discover said decks (and Cram Cards!) when searching for that course through search engines.
 
 ## Licensing
-Not decided as of yet, but am evaluating open source copyleft licenses. Special features, through so called "plugins", will not necessarily be open source (data format aside).
+GPL. Special features, through so called "plugins", that are drag-and-drop into the application can have their own proprietary codebases. 
