@@ -22,7 +22,7 @@ function LayoutFullWidth(props: LayoutFullWidthProps) {
     return (
         <div>
             <Head title={props.title} />
-            <Nav />
+            <Nav isTraditionalPage={props.isTraditionalPage} />
             <div className={containingDivClassNames}>
                 {props.children}
             </div>

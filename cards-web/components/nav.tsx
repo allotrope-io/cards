@@ -3,13 +3,17 @@ import Link from 'next/link';
 import { UserContext } from './user-provider';
 import { auth } from './firebase';
 
-const Nav = () => {
+export interface NavProps {
+  isTraditionalPage?: boolean;
+}
+
+const Nav = (props: NavProps) => {
   const user = useContext(UserContext).user;
   const [navOpen, setNavOpen] = useState(false);
 
   return (
     <nav className="navbar is-link is-transparent">
-      <div className="container">
+      <div className={props.isTraditionalPage ? "container" : "container is-fluid"}>
         <div className="navbar-brand">
           <Link href="/">
             <a className="navbar-item">Cram Cards</a>
