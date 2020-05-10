@@ -3,10 +3,20 @@ import Nav from './nav';
 import Foot from './foot';
 import Footer from './footer';
 
-function LayoutFullWidth(props) {
+export interface LayoutFullWidthProps {
+    stretch?: boolean;
+    isTraditionalPage?: boolean;
+    title: string;
+    children?: any;
+}
+
+function LayoutFullWidth(props: LayoutFullWidthProps) {
     let containingDivClassNames = '';
-    if (props.stretch != "true") {
+    if (props.stretch != true) {
         containingDivClassNames = 'container padTop padBottom';
+    }
+    if (!props.isTraditionalPage) {
+        containingDivClassNames = containingDivClassNames + ' is-fluid';
     }
 
     return (
@@ -16,7 +26,7 @@ function LayoutFullWidth(props) {
             <div className={containingDivClassNames}>
                 {props.children}
             </div>
-            <Footer />
+            {props.isTraditionalPage && <Footer />}
             <Foot />
             <style jsx>{`
             .padTop {

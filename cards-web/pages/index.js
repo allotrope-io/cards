@@ -13,8 +13,10 @@ const Home = () => {
   }, []);
   return (
     <div>
-
-      <LayoutFullWidth title="Cram Cards" stretch="true">
+      <LayoutFullWidth 
+      title="Cram Cards" 
+      isTraditionalPage={true}
+      stretch={true}>
         <div className="hero has-text-centered has-text-white">
           <div className="hero-body">
             <h3 className="title is-1 has-text-white">Learn. Memorize. Done.<br />

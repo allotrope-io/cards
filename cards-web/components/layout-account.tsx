@@ -1,6 +1,11 @@
 import LayoutFullWidth from './layout-full-width';
-import SignIn from '../pages/signin';
-function LayoutAccount(props) {
+
+export interface LayoutAccountProps {
+    title?: string;
+    children: any;
+}
+
+function LayoutAccount(props: LayoutAccountProps) {
     const user = null;
     return (
         <div>

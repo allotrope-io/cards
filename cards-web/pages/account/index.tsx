@@ -18,7 +18,7 @@ const Account = () => {
     const {photoURL, displayName, email} = user;
     return (
         <div>
-            <LayoutAccount title="Your Profile | Cram Cards">
+            <LayoutAccount title="Your Profile">
                 <div className="columns">
                     <div className="column">
                         <img style={{ maxWidth: '75px', maxHeight: '75px'}}
