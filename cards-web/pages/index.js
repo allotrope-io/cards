@@ -14,10 +14,10 @@ const Home = () => {
   return (
     <div>
 
-      <LayoutFullWidth title="Home" stretch="true">
+      <LayoutFullWidth title="Cram Cards" stretch="true">
         <div className="hero has-text-centered has-text-white">
           <div className="hero-body">
-            <h3 className="title is-1 has-text-white">Learn. Memorize. Relax.<br />
+            <h3 className="title is-1 has-text-white">Learn. Memorize. Done.<br />
             </h3>
             <p className="subtitle is-3 has-text-white">
               Life's too short to spend all day studying.
@@ -53,8 +53,8 @@ const Home = () => {
               <div className="column">
                 <Link href="#!">
                   <a className="box">
-                    <h4 className="title is-5">Pricing</h4>
-                    <p>Free! Costly features (i.e. expanded storage space) will be paid.</p>
+                    <h4 className="title is-5">Free</h4>
+                    <p>Just like cue cards should be. Expanded features (e.g. extra storage space) are paid.</p>
                   </a>
                 </Link>
               </div>
